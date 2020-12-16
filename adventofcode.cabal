@@ -143,3 +143,8 @@ executable 19_josephus
   -- Seq.deleteAt added in 0.5.8.1
   build-depends: base, array, containers >= 0.5.8.1
   main-is:       19_josephus.hs
+
+executable 20_firewall_rules
+  import: bin, flags
+  build-depends: base, adventofcode2016, aocsplit
+  main-is:       20_firewall_rules.hs
