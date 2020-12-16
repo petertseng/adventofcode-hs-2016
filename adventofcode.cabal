@@ -31,3 +31,9 @@ executable 19_josephus
   hs-source-dirs: bin
   main-is:        19_josephus.hs
   ghc-options:    -Wall
+
+executable 20_firewall_rules
+  build-depends:  base, adventofcode2016, aocsplit
+  hs-source-dirs: bin
+  main-is:        20_firewall_rules.hs
+  ghc-options:    -Wall
