@@ -30,4 +30,4 @@ None yet.
 
 ### Closing Thoughts
 
-None yet.
+Sequences are good, but for Advent of Code problems usually you can find a faster array-based solution.

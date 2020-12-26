@@ -137,3 +137,9 @@ executable 18_its_a_trap
   import: bin, flags
   build-depends: base, aocsplit, directory
   main-is:       18_its_a_trap.hs
+
+executable 19_josephus
+  import: bin, flags
+  -- Seq.deleteAt added in 0.5.8.1
+  build-depends: base, array, containers >= 0.5.8.1
+  main-is:       19_josephus.hs
