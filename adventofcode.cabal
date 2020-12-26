@@ -18,3 +18,9 @@ library aocsplit
   exposed-modules: AdventOfCode.Split
   ghc-options:     -Wall
   build-depends:   base
+
+executable 09_decompression
+  build-depends:  base, adventofcode2016, aocsplit
+  hs-source-dirs: bin
+  main-is:        09_decompression.hs
+  ghc-options:    -Wall
