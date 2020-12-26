@@ -80,3 +80,8 @@ executable 08_2fa
   import: bin, flags
   build-depends: base, adventofcode2016, aocsplit, containers
   main-is:       08_2fa.hs
+
+executable 09_decompression
+  import: bin, flags
+  build-depends: base, adventofcode2016, aocsplit
+  main-is:       09_decompression.hs
