@@ -45,3 +45,8 @@ executable 01_manhattan_distance
   import: bin, flags
   build-depends: base, adventofcode2016, containers
   main-is:       01_manhattan_distance.hs
+
+executable 02_elevator_keypad
+  import: bin, flags
+  build-depends: base, adventofcode2016
+  main-is:       02_elevator_keypad.hs
