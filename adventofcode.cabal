@@ -65,3 +65,8 @@ executable 05_md5_door
   import: bin, flags
   build-depends: base, bytestring, cryptohash-md5, containers, directory
   main-is:       05_md5_door.hs
+
+executable 06_frequent_characters
+  import: bin, flags
+  build-depends: base, adventofcode2016, array
+  main-is:       06_frequent_characters.hs
