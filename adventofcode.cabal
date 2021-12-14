@@ -70,3 +70,8 @@ executable 06_frequent_characters
   import: bin, flags
   build-depends: base, adventofcode2016, array
   main-is:       06_frequent_characters.hs
+
+executable 07_ipv7
+  import: bin, flags
+  build-depends: base, adventofcode2016, aocsplit
+  main-is:       07_ipv7.hs
