@@ -60,3 +60,8 @@ executable 04_encrypted_rooms
   import: bin, flags
   build-depends: base, adventofcode2016, array
   main-is:       04_encrypted_rooms.hs
+
+executable 05_md5_door
+  import: bin, flags
+  build-depends: base, bytestring, cryptohash-md5, containers, directory
+  main-is:       05_md5_door.hs
