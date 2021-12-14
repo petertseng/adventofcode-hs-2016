@@ -40,3 +40,8 @@ library aocsplit
   hs-source-dirs:  lib
   exposed-modules: AdventOfCode.Split
   build-depends:   base
+
+executable 01_manhattan_distance
+  import: bin, flags
+  build-depends: base, adventofcode2016, containers
+  main-is:       01_manhattan_distance.hs
