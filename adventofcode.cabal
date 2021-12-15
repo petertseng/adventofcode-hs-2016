@@ -122,3 +122,8 @@ executable 15_timing_discs
   import: bin, flags
   build-depends: base, adventofcode2016
   main-is:       15_timing_discs.hs
+
+executable 16_dragon_checksum
+  import: bin, flags
+  build-depends: base, aocsplit, directory
+  main-is:       16_dragon_checksum.hs
