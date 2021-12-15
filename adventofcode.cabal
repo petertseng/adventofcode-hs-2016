@@ -85,3 +85,8 @@ executable 09_decompression
   import: bin, flags
   build-depends: base, adventofcode2016, aocsplit
   main-is:       09_decompression.hs
+
+executable 10_balance_bots
+  import: bin, flags
+  build-depends: base, adventofcode2016, containers
+  main-is:       10_balance_bots.hs
