@@ -47,6 +47,12 @@ library aocsplit
   exposed-modules: AdventOfCode.Split
   build-depends:   base
 
+library assembunny
+  import: flags
+  hs-source-dirs:  lib
+  exposed-modules: AdventOfCode.Assembunny
+  build-depends:   base, array, containers
+
 executable 01_manhattan_distance
   import: bin, flags
   build-depends: base, adventofcode2016, containers
@@ -101,3 +107,8 @@ executable 11_chips_and_generators
   import: bin, flags
   build-depends: base, adventofcode2016, aocsearch, aocsplit, containers
   main-is:       11_chips_and_generators.hs
+
+executable 12_assembunny
+  import: bin, flags
+  build-depends: base, adventofcode2016, assembunny, containers
+  main-is:       12_assembunny.hs
