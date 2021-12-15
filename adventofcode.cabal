@@ -117,3 +117,8 @@ executable 13_maze
   import: bin, flags
   build-depends: base, aocsearch, aocsplit
   main-is:       13_maze.hs
+
+executable 15_timing_discs
+  import: bin, flags
+  build-depends: base, adventofcode2016
+  main-is:       15_timing_discs.hs
