@@ -158,3 +158,8 @@ executable 22_grid_computing
   import: bin, flags
   build-depends: base, adventofcode2016, aocsearch, aocsplit, containers
   main-is:       22_grid_computing.hs
+
+executable 23_assembunny_ii
+  import: bin, flags
+  build-depends: base, adventofcode2016, assembunny, containers
+  main-is:       23_assembunny_ii.hs
