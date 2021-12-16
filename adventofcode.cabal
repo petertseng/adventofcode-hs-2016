@@ -153,3 +153,8 @@ executable 21_scrambled_passwords
   import: bin, flags
   build-depends: base, adventofcode2016, containers
   main-is:       21_scrambled_passwords.hs
+
+executable 22_grid_computing
+  import: bin, flags
+  build-depends: base, adventofcode2016, aocsearch, aocsplit, containers
+  main-is:       22_grid_computing.hs
