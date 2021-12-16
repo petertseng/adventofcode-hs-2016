@@ -163,3 +163,8 @@ executable 23_assembunny_ii
   import: bin, flags
   build-depends: base, adventofcode2016, assembunny, containers
   main-is:       23_assembunny_ii.hs
+
+executable 24_hamiltonian
+  import: bin, flags
+  build-depends: base, adventofcode2016, aocsearch, array, containers
+  main-is:       24_hamiltonian.hs
