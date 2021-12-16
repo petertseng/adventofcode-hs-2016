@@ -1,3 +1,4 @@
+{-# LANGUAGE PatternGuards #-}
 {-# LANGUAGE TupleSections #-}
 
 module AdventOfCode.Assembunny (
@@ -7,7 +8,7 @@ module AdventOfCode.Assembunny (
   zeroes,
 ) where
 
-import Data.Array.IArray ((!), Array, bounds, inRange, listArray)
+import Data.Array.IArray ((!), (//), Array, bounds, inRange, listArray)
 import Data.Char (isDigit, isLower)
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
@@ -16,7 +17,7 @@ type Program = Array Int Inst
 type Regs = Map Char Int
 newtype Status = Finished Regs
 
-data Inst = Copy Input Char | Increment Char | Decrement Char | JumpNotZero Input Input
+data Inst = Copy Input Char | Increment Char | Decrement Char | JumpNotZero Input Input | Toggle Input | NopCopy Input Int | Nop1
 data Input = Immed Int | Reg Char
 
 zeroes :: [Char] -> Regs
@@ -31,6 +32,10 @@ runA p r = case run' p 0 r of
 
 run' :: Program -> Int -> Regs -> Status
 run' prog pc regs | not (bounds prog `inRange` pc) = Finished regs
+run' prog pc regs | Toggle t <- prog ! pc =
+  let target = pc + resolve regs t
+      prog' = if bounds prog `inRange` target then prog // [(target, toggle (prog ! target))] else prog
+  in run' prog' (pc + 1) regs
 run' prog pc regs = run' prog pc' regs'
   where
     (pc', regs') = case prog ! pc of
@@ -41,6 +46,9 @@ run' prog pc regs = run' prog pc' regs'
       Decrement c -> (pc + 1, Map.adjust pred c regs)
       JumpNotZero i _ | resolve regs i == 0 -> (pc + 1, regs)
       JumpNotZero _ d -> (pc + resolve regs d, regs)
+      Toggle _ -> error "toggle should have been handled in other case"
+      NopCopy _ _ -> (pc + 1, regs)
+      Nop1 -> (pc + 1, regs)
 
 checkPlusEquals :: Program -> Int -> Maybe (Char, Char)
 checkPlusEquals prog pc | not (bounds prog `inRange` (pc + 2)) = Nothing
@@ -53,6 +61,17 @@ resolve regs i = case i of
   Immed v -> v
   Reg c -> regs Map.! c
 
+toggle :: Inst -> Inst
+toggle (Copy i d) = JumpNotZero i (Reg d)
+toggle (Increment c) = Decrement c
+toggle (Decrement c) = Increment c
+toggle (JumpNotZero i (Reg d)) = Copy i d
+toggle (JumpNotZero i (Immed d)) = NopCopy i d
+toggle (Toggle (Reg c)) = Increment c
+toggle (Toggle (Immed _)) = Nop1
+toggle (NopCopy i d) = JumpNotZero i (Immed d)
+toggle Nop1 = Nop1
+
 readProg :: String -> Program
 readProg s = listArray (0, length insts - 1) insts
   where insts = map inst (lines s)
@@ -63,6 +82,7 @@ inst s = case words s of
   ["inc", [d]] -> Increment d
   ["dec", [d]] -> Decrement d
   ["jnz", i, d] -> JumpNotZero (input i) (input d)
+  ["tgl", i] -> Toggle (input i)
   _ -> error ("bad inst " ++ s)
 
 input :: String -> Input
