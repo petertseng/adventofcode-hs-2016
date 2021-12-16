@@ -148,3 +148,8 @@ executable 20_firewall_rules
   import: bin, flags
   build-depends: base, adventofcode2016, aocsplit
   main-is:       20_firewall_rules.hs
+
+executable 21_scrambled_passwords
+  import: bin, flags
+  build-depends: base, adventofcode2016, containers
+  main-is:       21_scrambled_passwords.hs
