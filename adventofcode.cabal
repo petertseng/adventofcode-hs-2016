@@ -132,3 +132,8 @@ executable 17_md5_maze
   import: bin, flags
   build-depends: base, bytestring, containers, cryptohash-md5, directory
   main-is:       17_md5_maze.hs
+
+executable 18_its_a_trap
+  import: bin, flags
+  build-depends: base, aocsplit, directory
+  main-is:       18_its_a_trap.hs
