@@ -75,6 +75,7 @@ executable 04_encrypted_rooms
 
 executable 05_md5_door
   import: bin, flags
+  ghc-options: -dynamic
   build-depends: base, bytestring, cryptohash-md5, containers, directory
   main-is:       05_md5_door.hs
 
@@ -130,6 +131,7 @@ executable 16_dragon_checksum
 
 executable 17_md5_maze
   import: bin, flags
+  ghc-options: -dynamic
   build-depends: base, bytestring, containers, cryptohash-md5, directory
   main-is:       17_md5_maze.hs
 
